@@ -2,9 +2,13 @@
 
 A while ago we had this idea that we'd setup this mesh network using buses (as in public transport) to distribute information around to the nodes to provide important information to clients (connected to the node via wifi).
 
+The buses would sync with a controller node when they were parked up at the depot. Then, when they went on their routes, they'd replicate to nodes that lived at the bus stops.
+
+End users would then connect to these nodes to retrieve data.
+
 An example use case would be relaying weather warnings from the BOM.
 
-An extension of this idea would be that you have a node sitting at a floodway collecting data on the water depth. It then relays this information to any receiving node going past (so a car driving past).
+An extension of this idea, outside of using buses, would be that you have a node sitting at a floodway collecting data on the water depth. It then relays this information to any receiving node going past (so a car driving past).
 
 That data is then relayed back to an authorative endpoint.
 
@@ -33,6 +37,14 @@ Maybe target Raspi for now.
 We want to be able to:
 - Scan for other nodes and connect to them.
 - Serve as an AP for other nodes and end-users.
+
+Not sure if utilising a mesh network would have a lot of benefit here... I think if end-users could easily connect to it.
+
+Thinking of the [Freifunk](https://freifunk.net/en/what-is-it-about/) firmware running on WRT routers... a client could connect and NAT through the network, or another WRT could connect and become a node in the network.
+
+I suppose the thing to identify here is that there are two types of network connections we need to consider:
+1. One node needing a way of communicating with another node.
+2. End users that will have a device such as a phone or laptop to retrieve data from the node.
 
 ### DNS
 
@@ -133,3 +145,23 @@ You might have observed that there is a bit of concern over verification. This i
 Trying to keep the system as open as possible, but also trying to make sure the information retrieved and replicated is authentic and verified.
 
 It's going to be a weakness of this kind of network, but some attempts at security seem reasonable.
+
+# Development plans
+
+Well, there's a lot of moving parts here. I think the first bit to tackle is getting a software version two or more nodes working on a local network.
+
+Test out:
+- Bootstapping a node
+- System repo replication and state reconciliation.
+- Data repo replication and publication (both from an origin)
+
+Then we can start introducing the real-world elements like Wifi and nodes that come and go from the network.
+- How do we handle intermittent links or limited time replication?
+
+## VMs and containers
+
+I think for a development environment we can use VMs (Vagrant?) to create our provisioning script. 
+
+Then we can start building the containers that will be used by the Kubernetes cluster.
+
+As a thought, maybe our first data repo could be a blog that contains the TODO and a bit of a journal on where we're at with things. It'll give us data to replicate, whilst (hopefully) providing a helpful timeline of what we're doing.
