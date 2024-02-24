@@ -38,9 +38,9 @@ We want to be able to:
 
 Run an internal DNS to allow for easily connecting to services.
 
-user.hive.the-mesh.org
-sys.hive.the-mesh.org
-data.hive.the-mesh.org
+- user.hive.the-mesh.org
+- sys.hive.the-mesh.org
+- data.hive.the-mesh.org
 
 
 ### Web
