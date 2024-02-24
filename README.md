@@ -165,3 +165,9 @@ I think for a development environment we can use VMs (Vagrant?) to create our pr
 Then we can start building the containers that will be used by the Kubernetes cluster.
 
 As a thought, maybe our first data repo could be a blog that contains the TODO and a bit of a journal on where we're at with things. It'll give us data to replicate, whilst (hopefully) providing a helpful timeline of what we're doing.
+
+# Repos
+
+- [Bushive](https://github.com/killerbeebatteries/bushive)
+- [Bushive System](https://github.com/killerbeebatteries/bushive-system)
+- [Bushive Blog](https://github.com/killerbeebatteries/bushive-blog)
